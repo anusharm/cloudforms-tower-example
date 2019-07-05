@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+  - name: update inventory
+    uri:
+      url: "https://{{ tower_hostname }}/api/v2/inventories/{{ inventory_number }}/hosts/"
+      body_format: json
+      force_basic_auth: yes
+      user: "{{ tower_user }}"
+      password: "{{ tower_password }}"
+      validate_certs: no
+      status_code: 201
+      method: POST
+      body:
+        "name" : "{{ vm_name }}"
+        "variables" : "ansible_ssh_host: {{ ansible_default_ipv4.address }}"
+

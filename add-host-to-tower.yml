@@ -6,8 +6,8 @@
       url: "https://{{ tower_hostname }}/api/v2/inventories/{{ inventory_number }}/hosts/"
       body_format: json
       force_basic_auth: yes
-      user: "{{ tower_user }}"
-      password: "{{ tower_password }}"
+      user: "admin"
+      password: "redhat"
       validate_certs: no
       status_code: 201
       method: POST
